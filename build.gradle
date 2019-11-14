@@ -1,0 +1,22 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel"
+	compileOnly group: "com.liferay.portal", name: "com.liferay.util.taglib"
+	compileOnly group: "javax.portlet", name: "portlet-api"
+	compileOnly group: "javax.servlet", name: "javax.servlet-api"
+	compileOnly group: "jstl", name: "jstl"
+	compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations"
+	
+	compile group: 'commons-io', name: 'commons-io', version: '2.6'
+	
+	compile group: 'org.apache.poi', name: 'poi', version: '3.17'
+	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17'
+	compile group: 'org.apache.poi', name: 'ooxml-schemas', version: '1.4'
+	compile group: 'org.apache.xmlbeans', name: 'xmlbeans', version: '3.0.0'
+	compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'	
+	
+	compileOnly group: 'consistent.cuervo.remuneracion', name: 'remuneracion.api', version: '1.0.0'
+	compileOnly group: 'consistent.cuervo.remuneracion', name: 'remuneracion.service', version: '1.0.0'
+}
+repositories {
+    mavenLocal()
+}
