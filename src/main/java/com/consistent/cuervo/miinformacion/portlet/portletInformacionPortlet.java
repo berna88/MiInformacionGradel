@@ -50,6 +50,7 @@ private static Log log = LogFactoryUtil.getLog(portletInformacionPortlet.class.g
 			if(trabajador.getUser() != null) {
 			log.info("<--- Logeado --->");
 			renderRequest.setAttribute("trabajador", trabajador);
+			renderRequest.setAttribute("grafica", trabajador.getGraficaRemuneracion());
 			}else {
 			log.info("<---No logeado --->");
 			Trabajador trabajadorSinConexion = new Trabajador();
@@ -57,7 +58,11 @@ private static Log log = LogFactoryUtil.getLog(portletInformacionPortlet.class.g
 			}
 		} catch (PortalException e) {
 			// TODO Auto-generated catch block
+			log.error("PortalException"+e.getMessage());
 			e.printStackTrace();
+		}catch (Exception e) {
+			log.error("Exception"+e.getMessage());
+			// TODO: handle exception
 		}//Obtiene el usuario en sesion
 		
 		super.render(renderRequest, renderResponse);

@@ -1,5 +1,6 @@
 package com.consistent.cuervo.miinformacion.portlet.models;
 
+import com.consistent.cuervo.remuneracion.builder.model.Remuneracion;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -20,7 +21,6 @@ public class Trabajador {
 	private ThemeDisplay themeDisplay;
 	private User user;
 	
-	
 	public String getImagenPerfil() {
 		try {
 			imagenPerfil = user.getPortraitURL(themeDisplay);
@@ -29,9 +29,15 @@ public class Trabajador {
 			log.error("method:getImagenPerfil"+e.getMessage());
 			imagenPerfil = "";
 			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			log.error("method:getImagenPerfil"+e.getMessage());
+			imagenPerfil = "";
+			e.printStackTrace();
 		}
 		return imagenPerfil;
 	}
+	
 	public void setImagenPerfil(String imagenPerfil) {
 		this.imagenPerfil = imagenPerfil;
 	}
@@ -157,11 +163,13 @@ public class Trabajador {
 		this.centroDeCostos = centroDeCostos;
 		this.centroDeTrabajo = centroDeTrabajo;
 		this.fechaDeIngreso = fechaDeIngreso;
+		
 	}
 	
 	public Trabajador(User user,ThemeDisplay themeDisplay) {
 		this.user = user;
 		this.themeDisplay = themeDisplay;
+		
 	}
 	public Trabajador() {
 		this.nombres = "";
@@ -172,5 +180,21 @@ public class Trabajador {
 		this.centroDeCostos = "";
 		this.centroDeTrabajo = "";
 		this.fechaDeIngreso = "";
+		
+	}
+	
+	public Remuneracion getGraficaRemuneracion() {	
+		Remuneracion remuneracion;
+		try {
+			remuneracion = com.consistent.cuervo.remuneracion.builder.service.RemuneracionLocalServiceUtil.getRemuneracion(Integer.parseInt(getIdEmpleado()));
+			return remuneracion;
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PortalException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 }
