@@ -114,8 +114,8 @@ options: {
             boxWidth: 20,
             padding: 20
         }
-    }
-},
+    },
+
 tooltips: {
     callbacks: {
     	label: function(tooltipItem, data) {
@@ -130,6 +130,7 @@ tooltips: {
     										}
 			}
 		}
+	}
 };
 
 var ctx = document.getElementById('chart-area').getContext('2d');

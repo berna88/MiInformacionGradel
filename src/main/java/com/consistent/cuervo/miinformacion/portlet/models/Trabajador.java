@@ -189,10 +189,16 @@ public class Trabajador {
 			remuneracion = com.consistent.cuervo.remuneracion.builder.service.RemuneracionLocalServiceUtil.getRemuneracion(Integer.parseInt(getIdEmpleado()));
 			return remuneracion;
 		} catch (NumberFormatException e) {
+			log.error("getGraficaRemuneracion NumberFormatException"+ e.getMessage());
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (PortalException e) {
 			// TODO Auto-generated catch block
+			log.error("getGraficaRemuneracion PortalException"+ e.getMessage());
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO: handle exception
+			log.error("getGraficaRemuneracion Exception"+ e.getMessage());
 			e.printStackTrace();
 		}
 		return null;

@@ -12,13 +12,13 @@
 						</div>
 						<div class="top3 ">
 							<div>
-								<div class="cuadrado magenta"></div><p id="comp_garant" class="texto-grafica">Compensación Garantizada ( 77% )</p>
+								<div class="cuadrado magenta"></div><p id="comp_garant" class="texto-grafica">Compensación Garantizada ( )</p>
 							</div>
 							<div>
-								<div class="cuadrado yellow"></div><p id="comp_variable" class="texto-grafica">Compensación Variable ( 13% )</p>
+								<div class="cuadrado yellow"></div><p id="comp_variable" class="texto-grafica">Compensación Variable ( )</p>
 							</div>
 							<div>
-								<div class="cuadrado cyan"></div><p id="mis_beneficios" class="texto-grafica">Mis Beneficios ( 10% )</p>
+								<div class="cuadrado cyan"></div><p id="mis_beneficios" class="texto-grafica">Mis Beneficios ( )</p>
 							</div>
 						</div>
 					</div>
