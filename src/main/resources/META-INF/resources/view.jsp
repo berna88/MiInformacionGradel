@@ -47,7 +47,7 @@ var formatNumber = {
 				splitLeft = splitLeft.replace(regx, '$1' + this.separador + '$2');
 			}
 			if(dec)
-				return this.simbol + ' ' + splitLeft +splitRight+".00";
+				return this.simbol + ' ' + splitLeft +splitRight;
 			else
 				return this.simbol + ' ' + splitLeft +splitRight;
 		},

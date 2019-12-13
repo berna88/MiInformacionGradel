@@ -1,5 +1,9 @@
 package com.consistent.cuervo.miinformacion.portlet.models;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import com.consistent.cuervo.remuneracion.builder.model.Remuneracion;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
@@ -142,9 +146,30 @@ public class Trabajador {
 	public String getFechaDeIngreso() {
 		try {
 			fechaDeIngreso = (String) user.getExpandoBridge().getAttribute("Fecha_Antiguedad");
+			if(!fechaDeIngreso.isEmpty() && fechaDeIngreso != null) {
+				String ano = "";
+				String mes = "";
+				String dia = "";
+				for (int i=0; i < fechaDeIngreso.length(); i++) {
+					if(i<=3) {
+						ano += fechaDeIngreso.charAt(i);
+					}
+					if (i>=4 && i<=5) {
+						mes += fechaDeIngreso.charAt(i);
+					}
+					if (i>=6 && i<=7) {
+						dia += fechaDeIngreso.charAt(i);
+					}
+				}
+				String fechaFinal = dia+"/"+mes+"/"+ano;
+				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", new Locale("es", "ES"));
+				Date myDate = sdf.parse(fechaFinal);
+				sdf.applyPattern("EEEE, MMMMM d, yyyy");
+				String sMyDate = sdf.format(myDate);
+				fechaDeIngreso = sMyDate.substring(0, 1).toUpperCase() + sMyDate.substring(1);
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
-			log.error("Method: getFechaDeIngreso");
 			fechaDeIngreso = "";
 		}
 		return fechaDeIngreso;
@@ -187,6 +212,10 @@ public class Trabajador {
 		Remuneracion remuneracion;
 		try {
 			remuneracion = com.consistent.cuervo.remuneracion.builder.service.RemuneracionLocalServiceUtil.getRemuneracion(Integer.parseInt(getIdEmpleado()));
+			log.info(remuneracion.getRemuneracion_total());
+			log.info(remuneracion.getCompensacion_anual());
+			log.info(remuneracion.getCompensacion_variable_anual());
+			log.info(remuneracion.getBeneficia_anual());
 			return remuneracion;
 		} catch (NumberFormatException e) {
 			log.error("getGraficaRemuneracion NumberFormatException"+ e.getMessage());
