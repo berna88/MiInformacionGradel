@@ -31,3 +31,14 @@ font-size: 1.125em;
 	height: 330px;
 }
 }
+
+@media screen and (max-width: 640px) {
+  	#img-perfil{
+	margin-top: 110px;
+	margin-bottom: 10px;
+	}
+	.alt{
+	margin-bottom: 100px;
+}
+}
+

@@ -20,7 +20,7 @@ Remuneracion remuneracion = (Remuneracion) request.getAttribute("grafica");
 	<section class="row">
 		<article class="offset-1 col-10 offset-sm-1 col-sm-10 offset-md-1 col-md-10 offset-lg-1 col-lg-6 offset-xl-1 col-xl-6">
 			<%@ include file="jsp/body/informationUser.jsp" %>
-			<hr class="hr-remuneracion">
+			<hr class="hr-remuneracion" style="margin-top: 2rem;margin-bottom: 2rem;">
 			<%@ include file="jsp/body/dataUser.jsp" %>
 		</article>
 		<article class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
@@ -47,7 +47,7 @@ var formatNumber = {
 				splitLeft = splitLeft.replace(regx, '$1' + this.separador + '$2');
 			}
 			if(dec)
-				return this.simbol + ' ' + splitLeft +splitRight+".00";
+				return this.simbol + ' ' + splitLeft +splitRight;
 			else
 				return this.simbol + ' ' + splitLeft +splitRight;
 		},
