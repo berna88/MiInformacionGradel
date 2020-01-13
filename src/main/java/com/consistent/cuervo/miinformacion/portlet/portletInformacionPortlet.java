@@ -37,6 +37,7 @@ import org.osgi.service.component.annotations.Component;
 	service = Portlet.class
 )
 public class portletInformacionPortlet extends MVCPortlet {
+	
 private static Log log = LogFactoryUtil.getLog(portletInformacionPortlet.class.getName());
 	
 	@Override
@@ -56,6 +57,7 @@ private static Log log = LogFactoryUtil.getLog(portletInformacionPortlet.class.g
 			Trabajador trabajadorSinConexion = new Trabajador();
 			renderRequest.setAttribute("trabajador", trabajadorSinConexion);
 			}
+			super.render(renderRequest, renderResponse);
 		} catch (PortalException e) {
 			// TODO Auto-generated catch block
 			log.error("PortalException"+e.getMessage());
@@ -64,7 +66,5 @@ private static Log log = LogFactoryUtil.getLog(portletInformacionPortlet.class.g
 			log.error("Exception"+e.getMessage());
 			// TODO: handle exception
 		}//Obtiene el usuario en sesion
-		
-		super.render(renderRequest, renderResponse);
 	}
 }
