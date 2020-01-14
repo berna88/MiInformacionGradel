@@ -7,7 +7,7 @@
 		</div>
 		<div class="nombre">
 		<div style="z-index:1;width: 172px;height: 88px;position: absolute;right: 0;top: 0;">
-			<a style="list-style: none;opacity: 1;" href=" https://performancemanager5.successfactors.eu/login?company=casacuervo#/login">
+			<a target="_blank"  style="list-style: none;opacity: 1;" href=" https://performancemanager5.successfactors.eu/login?company=casacuervo#/login">
 				<img width="168" alt="" src='<%=request.getContextPath()+"/img/icon_igrow.png"%>'>
 			</a>
 		</div>
