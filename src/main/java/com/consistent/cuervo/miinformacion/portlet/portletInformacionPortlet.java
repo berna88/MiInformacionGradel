@@ -26,8 +26,8 @@ import org.osgi.service.component.annotations.Component;
 @Component(
 	immediate = true,
 	property = {
-		"com.liferay.portlet.display-category=category.sample",
-		"com.liferay.portlet.instanceable=true",
+		"com.liferay.portlet.display-category=root//Cuervo//Intranet",
+		"com.liferay.portlet.instanceable=false",
 		"javax.portlet.init-param.template-path=/",
 		"javax.portlet.init-param.view-template=/view.jsp",
 		"javax.portlet.name=" + portletInformacionPortletKeys.portletInformacion,
@@ -37,9 +37,11 @@ import org.osgi.service.component.annotations.Component;
 	service = Portlet.class
 )
 public class portletInformacionPortlet extends MVCPortlet {
-	
-private static Log log = LogFactoryUtil.getLog(portletInformacionPortlet.class.getName());
-	
+	// Variable para acceder a log de l portal
+	private static Log log = LogFactoryUtil.getLog(portletInformacionPortlet.class.getName());
+	/**
+	 * Metodo que obtiene la informacion del trabajador y la envia a la vista
+	 */
 	@Override
 	public void render(RenderRequest renderRequest, RenderResponse renderResponse)
 			throws IOException, PortletException {
@@ -49,11 +51,11 @@ private static Log log = LogFactoryUtil.getLog(portletInformacionPortlet.class.g
 			ThemeDisplay themeDisplay =(ThemeDisplay) renderRequest.getAttribute(WebKeys.THEME_DISPLAY); 
 			Trabajador trabajador = new Trabajador(user, themeDisplay);
 			if(trabajador.getUser() != null) {
-			log.info("<--- Logeado --->");
+			log.debug("<--- Logeado --->");
 			renderRequest.setAttribute("trabajador", trabajador);
 			renderRequest.setAttribute("grafica", trabajador.getGraficaRemuneracion());
 			}else {
-			log.info("<---No logeado --->");
+			log.debug("<---No logeado --->");
 			Trabajador trabajadorSinConexion = new Trabajador();
 			renderRequest.setAttribute("trabajador", trabajadorSinConexion);
 			}

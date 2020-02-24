@@ -212,10 +212,10 @@ public class Trabajador {
 		Remuneracion remuneracion;
 		try {
 			remuneracion = com.consistent.cuervo.remuneracion.builder.service.RemuneracionLocalServiceUtil.getRemuneracion(Integer.parseInt(getIdEmpleado()));
-			log.info(remuneracion.getRemuneracion_total());
-			log.info(remuneracion.getCompensacion_anual());
-			log.info(remuneracion.getCompensacion_variable_anual());
-			log.info(remuneracion.getBeneficia_anual());
+			log.debug(remuneracion.getRemuneracion_total());
+			log.debug(remuneracion.getCompensacion_anual());
+			log.debug(remuneracion.getCompensacion_variable_anual());
+			log.debug(remuneracion.getBeneficia_anual());
 			return remuneracion;
 		} catch (NumberFormatException e) {
 			log.error("getGraficaRemuneracion NumberFormatException"+ e.getMessage());
