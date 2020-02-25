@@ -20,9 +20,7 @@ import javax.portlet.RenderResponse;
 
 import org.osgi.service.component.annotations.Component;
 
-/**
- * @author bernardohernandez
- */
+
 @Component(
 	immediate = true,
 	property = {
@@ -37,11 +35,9 @@ import org.osgi.service.component.annotations.Component;
 	service = Portlet.class
 )
 public class portletInformacionPortlet extends MVCPortlet {
-	// Variable para acceder a log de l portal
+	
 	private static Log log = LogFactoryUtil.getLog(portletInformacionPortlet.class.getName());
-	/**
-	 * Metodo que obtiene la informacion del trabajador y la envia a la vista
-	 */
+	
 	@Override
 	public void render(RenderRequest renderRequest, RenderResponse renderResponse)
 			throws IOException, PortletException {
